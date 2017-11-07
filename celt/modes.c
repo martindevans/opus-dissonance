@@ -164,7 +164,7 @@ static opus_int16 *compute_ebands(opus_int32 Fs, int frame_size, int res, int *n
    return eBands;
 }
 
-static void compute_allocation_table(CELTMode *mode)
+static void compute_allocation_unitymangle_table(CELTMode *mode)
 {
    int i, j;
    unsigned char *allocVectors;
@@ -363,7 +363,7 @@ CELTMode *opus_custom_mode_create(opus_int32 Fs, int frame_size, int *error)
    /* Overlap must be divisible by 4 */
    mode->overlap = ((mode->shortMdctSize>>2)<<2);
 
-   compute_allocation_table(mode);
+   compute_allocation_unitymangle_table(mode);
    if (mode->allocVectors==NULL)
       goto failure;
 
