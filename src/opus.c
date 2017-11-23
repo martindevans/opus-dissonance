@@ -32,6 +32,8 @@
 #include "opus.h"
 #include "opus_private.h"
 
+#include "dissonance_ctl.h"
+
 #ifndef DISABLE_FLOAT_API
 OPUS_EXPORT void opus_pcm_soft_clip(float *_x, int N, int C, float *declip_mem)
 {
