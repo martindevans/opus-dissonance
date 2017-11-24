@@ -39,12 +39,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-
-OPUS_EXPORT int dissonance_opus_encoder_ctl_in(OpusEncoder *encoder, int request, int value);
-OPUS_EXPORT int dissonance_opus_encoder_ctl_out(OpusEncoder *encoder, int request, int *value);
-OPUS_EXPORT int dissonance_opus_decoder_ctl_in(OpusDecoder *decoder, int request, int value);
-OPUS_EXPORT int dissonance_opus_decoder_ctl_out(OpusDecoder *decoder, int request, int *value);
+#endif
 
 
 /**
@@ -980,6 +975,13 @@ OPUS_EXPORT int opus_multistream_packet_pad(unsigned char *data, opus_int32 len,
 OPUS_EXPORT OPUS_WARN_UNUSED_RESULT opus_int32 opus_multistream_packet_unpad(unsigned char *data, opus_int32 len, int nb_streams);
 
 /**@}*/
+
+
+OPUS_EXPORT int dissonance_opus_encoder_ctl_in(OpusEncoder *encoder, int request, int value);
+OPUS_EXPORT int dissonance_opus_encoder_ctl_out(OpusEncoder *encoder, int request, int *value);
+OPUS_EXPORT int dissonance_opus_decoder_ctl_in(OpusDecoder *decoder, int request, int value);
+OPUS_EXPORT int dissonance_opus_decoder_ctl_out(OpusDecoder *decoder, int request, int *value);
+
 
 #ifdef __cplusplus
 }
