@@ -32,7 +32,21 @@
 #include "opus.h"
 #include "opus_private.h"
 
-#include "dissonance_ctl.h"
+OPUS_EXPORT int dissonance_opus_encoder_ctl_in(OpusEncoder *encoder, int request, int value) {
+  return opus_encoder_ctl(encoder, request, value);
+}
+
+OPUS_EXPORT int dissonance_opus_encoder_ctl_out(OpusEncoder *encoder, int request, int *value) {
+  return opus_encoder_ctl(encoder, request, value);
+}
+
+OPUS_EXPORT int dissonance_opus_decoder_ctl_in(OpusDecoder *decoder, int request, int value) {
+  return opus_decoder_ctl(decoder, request, value);
+}
+
+OPUS_EXPORT int dissonance_opus_decoder_ctl_out(OpusDecoder *decoder, int request, int *value) {
+  return opus_decoder_ctl(decoder, request, value);
+}
 
 #ifndef DISABLE_FLOAT_API
 OPUS_EXPORT void opus_pcm_soft_clip(float *_x, int N, int C, float *declip_mem)

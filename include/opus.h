@@ -40,6 +40,13 @@
 extern "C" {
 #endif
 
+
+OPUS_EXPORT int dissonance_opus_encoder_ctl_in(OpusEncoder *encoder, int request, int value);
+OPUS_EXPORT int dissonance_opus_encoder_ctl_out(OpusEncoder *encoder, int request, int *value);
+OPUS_EXPORT int dissonance_opus_decoder_ctl_in(OpusDecoder *decoder, int request, int value);
+OPUS_EXPORT int dissonance_opus_decoder_ctl_out(OpusDecoder *decoder, int request, int *value);
+
+
 /**
  * @mainpage Opus
  *
