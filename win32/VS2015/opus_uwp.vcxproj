@@ -811,7 +811,6 @@
     <ClCompile Include="..\..\silk\x86\VQ_WMat_EC_sse4_1.c" />
     <ClCompile Include="..\..\silk\x86\x86_silk_map.c" />
     <ClCompile Include="..\..\src\analysis.c" />
-    <ClCompile Include="..\..\src\dissonance_ctl.c" />
     <ClCompile Include="..\..\src\mlp.c" />
     <ClCompile Include="..\..\src\mlp_data.c" />
     <ClCompile Include="..\..\src\opus.c" />

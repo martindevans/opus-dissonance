@@ -1487,9 +1487,6 @@
     <ClCompile Include="..\..\silk\float\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\dissonance_ctl.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\silk\fixed\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
