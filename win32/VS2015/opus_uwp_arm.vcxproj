@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{339eb0b2-cd49-4f08-9c88-4566fa1c36b8}</ProjectGuid>
+    <ProjectGuid>{1397E089-A363-4E04-B1BF-F92EFC5F9152}</ProjectGuid>
     <Keyword>DynamicLibrary</Keyword>
     <RootNamespace>opus_uwp</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -207,6 +207,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\celt\arch.h" />
+    <ClInclude Include="..\..\celt\arm\armcpu.h" />
+    <ClInclude Include="..\..\celt\arm\fixed_arm64.h" />
+    <ClInclude Include="..\..\celt\arm\fixed_armv4.h" />
+    <ClInclude Include="..\..\celt\arm\fixed_armv5e.h" />
+    <ClInclude Include="..\..\celt\arm\kiss_fft_armv4.h" />
+    <ClInclude Include="..\..\celt\arm\kiss_fft_armv5e.h" />
+    <ClInclude Include="..\..\celt\arm\mdct_arm.h" />
+    <ClInclude Include="..\..\celt\arm\pitch_arm.h" />
     <ClInclude Include="..\..\celt\bands.h" />
     <ClInclude Include="..\..\celt\celt.h" />
     <ClInclude Include="..\..\celt\celt_lpc.h" />
@@ -237,7 +245,6 @@
     <ClInclude Include="..\..\celt\x86\celt_lpc_sse.h" />
     <ClInclude Include="..\..\celt\x86\pitch_sse.h" />
     <ClInclude Include="..\..\celt\x86\vq_sse.h" />
-    <ClInclude Include="..\..\celt\x86\x86cpu.h" />
     <ClInclude Include="..\..\celt\_kiss_fft_guts.h" />
     <ClInclude Include="..\..\include\opus.h" />
     <ClInclude Include="..\..\include\opus_defines.h" />
@@ -274,6 +281,11 @@
     <ClInclude Include="opus_uwp\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\celt\arm\armcpu.c" />
+    <ClCompile Include="..\..\celt\arm\arm_celt_map.c" />
+    <ClCompile Include="..\..\celt\arm\celt_mdct_ne10.c" />
+    <ClCompile Include="..\..\celt\arm\celt_neon_intr.c" />
+    <ClCompile Include="..\..\celt\arm\pitch_neon_intr.c" />
     <ClCompile Include="..\..\celt\bands.c" />
     <ClCompile Include="..\..\celt\celt.c" />
     <ClCompile Include="..\..\celt\celt_decoder.c" />
@@ -292,13 +304,6 @@
     <ClCompile Include="..\..\celt\quant_bands.c" />
     <ClCompile Include="..\..\celt\rate.c" />
     <ClCompile Include="..\..\celt\vq.c" />
-    <ClCompile Include="..\..\celt\x86\celt_lpc_sse4_1.c" />
-    <ClCompile Include="..\..\celt\x86\pitch_sse.c" />
-    <ClCompile Include="..\..\celt\x86\pitch_sse2.c" />
-    <ClCompile Include="..\..\celt\x86\pitch_sse4_1.c" />
-    <ClCompile Include="..\..\celt\x86\vq_sse2.c" />
-    <ClCompile Include="..\..\celt\x86\x86cpu.c" />
-    <ClCompile Include="..\..\celt\x86\x86_celt_map.c" />
     <ClCompile Include="..\..\silk\A2NLSF.c" />
     <ClCompile Include="..\..\silk\ana_filt_bank_1.c" />
     <ClCompile Include="..\..\silk\biquad_alt.c" />
@@ -499,30 +504,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\silk\fixed\warped_autocorrelation_FIX.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\silk\fixed\x86\burg_modified_FIX_sse4_1.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\silk\fixed\x86\prefilter_FIX_sse.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\silk\fixed\x86\vector_ops_FIX_sse4_1.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -808,11 +789,6 @@
     <ClCompile Include="..\..\silk\table_LSF_cos.c" />
     <ClCompile Include="..\..\silk\VAD.c" />
     <ClCompile Include="..\..\silk\VQ_WMat_EC.c" />
-    <ClCompile Include="..\..\silk\x86\NSQ_del_dec_sse4_1.c" />
-    <ClCompile Include="..\..\silk\x86\NSQ_sse4_1.c" />
-    <ClCompile Include="..\..\silk\x86\VAD_sse4_1.c" />
-    <ClCompile Include="..\..\silk\x86\VQ_WMat_EC_sse4_1.c" />
-    <ClCompile Include="..\..\silk\x86\x86_silk_map.c" />
     <ClCompile Include="..\..\src\analysis.c" />
     <ClCompile Include="..\..\src\mlp.c" />
     <ClCompile Include="..\..\src\mlp_data.c" />
